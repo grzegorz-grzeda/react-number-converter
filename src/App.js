@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Input from './modules/Input';
+import Outputs from './modules/Outputs';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	let [number, setNumber] = useState(0);
+
+	const updateNumber = function (n) {
+		setNumber(n);
+	}
+
+	return (
+		<div className="App">
+			<h1>Number converter</h1>
+			<Input cb={updateNumber} />
+			<Outputs number={number} />
+		</div>
+	);
 }
 
 export default App;
